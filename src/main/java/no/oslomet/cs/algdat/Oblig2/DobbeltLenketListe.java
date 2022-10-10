@@ -11,12 +11,6 @@ import java.util.Iterator;
 public class DobbeltLenketListe<T> implements Liste<T> {
 
 
-    // instansvariabler
-    private Node<T> hode;          // peker til den første i listen
-    private Node<T> hale;          // peker til den siste i listen
-    private int antall;            // antall noder i listen
-    private int endringer;         // antall endringer i listen
-
     /**
      * Node class
      *
@@ -39,12 +33,28 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
 
 
+    // instansvariabler
+    private Node<T> hode;          // peker til den første i listen
+    private Node<T> hale;          // peker til den siste i listen
+    //Node<T> p ;
+    private int antall;            // antall noder i listen
+    private int endringer;         // antall endringer i listen
+
+
+
+
+
     public DobbeltLenketListe() {
-        throw new UnsupportedOperationException();
+       // throw new UnsupportedOperationException();
+
+        hode = hale = null;
+        antall = 0;
+        endringer = 0;
     }
 
     public DobbeltLenketListe(T[] a) {
         throw new UnsupportedOperationException();
+
     }
 
     public Liste<T> subliste(int fra, int til) {
@@ -53,12 +63,15 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        throw new UnsupportedOperationException();
+        if(antall==0){
+            return 0 ;
+        }
+        return antall;// throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean tom() {
-        throw new UnsupportedOperationException();
+        return antall ==0;// throw new UnsupportedOperationException();
     }
 
     @Override
