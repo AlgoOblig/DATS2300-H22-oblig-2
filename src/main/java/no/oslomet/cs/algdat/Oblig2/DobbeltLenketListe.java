@@ -38,7 +38,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private Node<T> hale;          // peker til den siste i listen
     //Node<T> p ;
     private int antall;            // antall noder i listen
-    private int endringer;         // antall endringer i listen
+    private int endringer;            // antall endringer i listen
+    Node<T> curNode;
+    int i = 0;
 
 
 
@@ -47,13 +49,30 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public DobbeltLenketListe() {
        // throw new UnsupportedOperationException();
 
-        hode = hale = null;
+        hode = curNode = hale = null;
         antall = 0;
         endringer = 0;
     }
 
     public DobbeltLenketListe(T[] a) {
-        throw new UnsupportedOperationException();
+
+        if(a.length != 0) {
+
+            for (; i < a.length && a[i] == null; ++i);
+            if(i == a.length) return;
+
+             hode = new Node<>(a[i], null, null);
+            curNode = hode;
+            antall = 1;
+
+            for (i++; i < a.length; i++) {
+                if (a[i] != null) {
+                    curNode = curNode.neste = new Node<>(a[i], curNode, null);
+                    antall++;
+                }
+            }
+            hale = curNode;
+        }
 
     }
 
