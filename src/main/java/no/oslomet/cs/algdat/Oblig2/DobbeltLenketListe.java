@@ -6,6 +6,7 @@ package no.oslomet.cs.algdat.Oblig2;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Objects;
 
 
 public class DobbeltLenketListe<T> implements Liste<T> {
@@ -140,11 +141,34 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException();
+
+
+
+        StringBuilder str = new StringBuilder();
+        str.append("[");
+
+        if(!tom()) {
+            curNode = hode;
+            str.append(curNode.verdi);
+            curNode = curNode.neste;
+
+            for (int i = 1; i < antall; i++) {
+                str.append(",").append(" ").append(curNode.verdi);
+                curNode = curNode.neste;
+            }
+        }
+
+        str.append("]");
+        return str.toString();
+
+
+
     }
 
     public String omvendtString() {
         throw new UnsupportedOperationException();
+
+
     }
 
     @Override
@@ -190,6 +214,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
         throw new UnsupportedOperationException();
+    }
+
+
+    public static void main(String[] args) {
+
+
+        String[] s1 = {}, s2 = {"A"}, s3 = {null,"A",null,"B",null};
+        DobbeltLenketListe<String> l1 = new DobbeltLenketListe<>(s1);
+        DobbeltLenketListe<String> l2 = new DobbeltLenketListe<>(s2);
+        DobbeltLenketListe<String> l3 = new DobbeltLenketListe<>(s3);
+        System.out.println(l1.toString() + " " + l2.toString()
+                + " " + l3.toString() );
+
+
     }
 
 } // class DobbeltLenketListe
