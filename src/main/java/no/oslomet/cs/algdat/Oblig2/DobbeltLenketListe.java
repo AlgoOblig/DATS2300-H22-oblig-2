@@ -80,6 +80,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public Liste<T> subliste(int fra, int til) {
         throw new UnsupportedOperationException();
+
+
     }
 
     @Override
@@ -98,27 +100,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public boolean leggInn(T verdi) {
         //throw new UnsupportedOperationException();
-  /**
-        Objects.requireNonNull(verdi,"Tabellen a er null!!");
 
-        if(tom()) {
-
-            hode =  new Node<>(verdi,null,null);
-            hale = hode;
-
-        }
-        else {
-            hale  = new Node<>(verdi,hale,null);
-            hale.neste = hale;
-
-        }
-
-        antall++;
-        endringer++;
-        return true;
-
-
-*/
 
 
         Objects.requireNonNull(verdi,"Ikke tillatt med nullverdier!");
@@ -126,10 +108,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(tom()) {
             hode =  new Node<>(verdi,null,null);
             hale = hode;
-            //hode = hale = new Node<>(verdi,null,null);
-            //
-            //
-            // }  //tom liste -> hode og hale = nye noden
         }
         else {
             hale.neste = new Node<>(verdi,hale,null);
@@ -192,8 +170,40 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
+       // throw new UnsupportedOperationException();
+
+        Objects.requireNonNull(nyverdi,"tomtTable er uakseptabelt");
+        indeksKontroll(indeks,false);
+
+        Node<T> nodePaaInd = finnNode(indeks);
+        T tidligereVerdi = nodePaaInd.verdi;
+        nodePaaInd.verdi = nyverdi;
+        endringer++;
+        return tidligereVerdi;
     }
+
+
+    private static void fratilKontroll(int antall, int fra, int til)
+    {
+        if (fra > til) {
+            throw new IllegalArgumentException
+                    ("den er " + fra + " til -->" + til + "er ulovlig domain");
+
+        }
+        if (fra < 0) {
+            throw new IndexOutOfBoundsException
+                    ("fra den" + fra + ") er negativ omrade!");
+        }
+
+        if (til > antall)    {
+            throw new IndexOutOfBoundsException
+                    ("til -->" + til + ") >>>> antall(" + antall + ")");
+        }
+
+    }
+
+
+
 
     @Override
     public boolean fjern(T verdi) {
@@ -313,6 +323,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public static void main(String[] args) {
 
 
+        Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
+        DobbeltLenketListe<Character> liste = new DobbeltLenketListe<>(c);
+        System.out.println(liste.subliste(3,8)); // [D, E, F, G, H]
+        System.out.println(liste.subliste(5,5)); // []
+        System.out.println(liste.subliste(8,liste.antall())); // [I, J]
+// System.out.println(liste.subliste(0,11)); // skal kaste unntak
+
+
       /*  String[] s1 = {}, s2 = {"A"}, s3 = {null,"A",null,"B",null};
         DobbeltLenketListe<String> l1 = new DobbeltLenketListe<>(s1);
         DobbeltLenketListe<String> l2 = new DobbeltLenketListe<>(s2);
@@ -322,7 +340,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
 
 
-        String[] s1 = {}, s2 = {"A"}, s3 = {null,"A",null,"B",null};
+       /** String[] s1 = {}, s2 = {"A"}, s3 = {null,"A",null,"B",null};
         DobbeltLenketListe<String> l1 = new DobbeltLenketListe<>(s1);
         DobbeltLenketListe<String> l2 = new DobbeltLenketListe<>(s2);
         DobbeltLenketListe<String> l3 = new DobbeltLenketListe<>(s3);
@@ -343,7 +361,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 // [1, 2] [2, 1]
 // [1, 2, 3] [3, 2, 1]
 
-
+*/
     }
 
 } // class DobbeltLenketListe
