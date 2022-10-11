@@ -155,8 +155,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
 
     private Node<T> finnNode(int indeks){
-        throw new UnsupportedOperationException();
-        /**Node<T> curNode = hode;
+        //throw new UnsupportedOperationException();
+        Node<T> curNode = hode;
         if(indeks < antall/2){
             for(int i = 0; i < indeks; i++){
                 curNode =curNode.neste;
@@ -168,7 +168,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 curNode = curNode.forrige;
             }
         }
-        return curNode;*/
+        return curNode;
         //return  null;
     }
 
@@ -179,10 +179,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
 
-        //indeksKontroll(indeks,false);
-        //return finnNode(indeks).verdi;
+        indeksKontroll(indeks,false);
+        return finnNode(indeks).verdi;
     }
 
     @Override
