@@ -79,7 +79,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til) {
-        throw new UnsupportedOperationException();
+       // throw new UnsupportedOperationException();
+
+        fratilKontroll(antall, fra, til);
+
+        T[] arr = (T[]) new  Object[til-fra];
+        int elementPos = 0;
+        for(int i = fra; i < til; i++){
+            arr[elementPos] = hent(i);
+            elementPos++;
+        }
+
+        DobbeltLenketListe<T> elmentListe = new DobbeltLenketListe<>(arr);
+        return elmentListe;
 
 
     }
