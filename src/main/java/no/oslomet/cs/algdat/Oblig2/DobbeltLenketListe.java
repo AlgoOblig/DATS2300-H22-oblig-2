@@ -98,7 +98,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public boolean leggInn(T verdi) {
         //throw new UnsupportedOperationException();
-
+  /**
         Objects.requireNonNull(verdi,"Tabellen a er null!!");
 
         if(tom()) {
@@ -118,12 +118,58 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         return true;
 
 
+*/
+
+
+        Objects.requireNonNull(verdi,"Ikke tillatt med nullverdier!");
+
+        if(tom()) {
+            hode =  new Node<>(verdi,null,null);
+            hale = hode;
+            //hode = hale = new Node<>(verdi,null,null);
+            //
+            //
+            // }  //tom liste -> hode og hale = nye noden
+        }
+        else {
+            hale.neste = new Node<>(verdi,hale,null);
+             hale = hale.neste ;
+            /**hale  = new Node<>(verdi,hale,null);
+            hale.neste = hale;*/
+
+
+
+        }
+
+        antall++;
+        endringer++;
+        return true;
+
 
     }
 
     @Override
     public void leggInn(int indeks, T verdi) {
         throw new UnsupportedOperationException();
+    }
+
+
+    private Node<T> finnNode(int indeks){
+        throw new UnsupportedOperationException();
+        /**Node<T> curNode = hode;
+        if(indeks < antall/2){
+            for(int i = 0; i < indeks; i++){
+                curNode =curNode.neste;
+            }
+        }
+        else{
+            curNode = hale;
+            for(int i = antall-1; i > indeks; i--){
+                curNode = curNode.forrige;
+            }
+        }
+        return curNode;*/
+        //return  null;
     }
 
     @Override
@@ -134,6 +180,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public T hent(int indeks) {
         throw new UnsupportedOperationException();
+
+        //indeksKontroll(indeks,false);
+        //return finnNode(indeks).verdi;
     }
 
     @Override
@@ -185,28 +234,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
 
 
+
+
     }
 
     public String omvendtString() {
         //throw new UnsupportedOperationException();
 
-  /**
-
-        str.append("[");
-
-        if(antall != 0) {               //Hvis listen ikke er tom
-             Node<T> curNode = hode;
-            str.append(curNode.verdi);
-            curNode = curNode.neste;
-
-            for (int i = 1; i < antall; i++) {
-                str.append(",").append(" ").append(curNode.verdi);
-                curNode= curNode.neste;
-            }
-        }
-
-        str.append("]");
-        return str.toString();*/
 
 
         StringBuilder str = new StringBuilder();
@@ -224,6 +258,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         str.append("]");
         return str.toString();
+
+
 
 
     }
