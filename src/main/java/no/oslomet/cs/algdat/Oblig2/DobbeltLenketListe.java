@@ -101,8 +101,24 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Objects.requireNonNull(verdi,"Tabellen a er null!!");
 
+        if(tom()) {
 
+            hode =  new Node<>(verdi,null,null);
+            hale = hode;
+
+        }
+        else {
+            hale  = new Node<>(verdi,hale,null);
+            hale.neste = hale;
+
+        }
+
+        antall++;
+        endringer++;
         return true;
+
+
+
     }
 
     @Override
@@ -277,6 +293,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         System.out.println(l1.toString() + " " + l2.toString()
                 + " " + l3.toString() + " " + l1.omvendtString() + " "
                 + l2.omvendtString() + " " + l3.omvendtString());
+
+
+        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
+        System.out.println(liste.toString() + " " + liste.omvendtString());
+        for (int i = 1; i <= 3; i++) {
+            liste.leggInn(i);
+            System.out.println(liste.toString() + " " + liste.omvendtString());
+        }
+// Utskrift:
+// [] []
+// [1] [1]
+// [1, 2] [2, 1]
+// [1, 2, 3] [3, 2, 1]
 
 
     }
