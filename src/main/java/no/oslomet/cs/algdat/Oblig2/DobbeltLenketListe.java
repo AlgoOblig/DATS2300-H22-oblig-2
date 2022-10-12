@@ -336,7 +336,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void nullstill() {
-        throw new UnsupportedOperationException();
+        Node<T> enuNode = null;
+        while (!tom()){
+            hode.verdi = null;
+            hode.forrige = null;
+            enuNode = hode.neste;
+            hode.neste = null;
+            antall--;
+            hode = enuNode;
+        }
+        endringer++;
     }
 
     @Override
@@ -399,7 +408,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Iterator<T> iterator(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false);
+        return new DobbeltLenketListeIterator(indeks);
     }
 
     private class DobbeltLenketListeIterator implements Iterator<T> {
