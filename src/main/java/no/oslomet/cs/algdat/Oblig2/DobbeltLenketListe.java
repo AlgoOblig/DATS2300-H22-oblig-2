@@ -5,7 +5,9 @@ package no.oslomet.cs.algdat.Oblig2;
 
 
 import java.util.Comparator;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 
@@ -422,7 +424,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public T next() {
-            throw new UnsupportedOperationException();
+           // throw new UnsupportedOperationException();
+
+            if(iteratorendringer != endringer) {
+                throw new ConcurrentModificationException("vi har endringen i liste");
+            }
+            if(!hasNext()){
+                throw new NoSuchElementException("verdien er ikke mer og de det tom list");
+            }
+
+            fjernOK = true;
+            T denneVerdi = denne.verdi;
+            denne = denne.neste;
+
+            return denneVerdi;
         }
 
         @Override
