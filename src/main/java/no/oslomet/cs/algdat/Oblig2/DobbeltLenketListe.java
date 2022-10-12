@@ -258,8 +258,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException();
-      /**  if(verdi == null) {
+        //throw new UnsupportedOperationException();
+       if(verdi == null) {
 
             return false;
         }
@@ -285,12 +285,51 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
             refNode = curNode; curNode = curNode.neste;
         }
-        return false;*/
+        return false;
     }
 
     @Override
     public T fjern(int indeks) {
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+
+        indeksKontroll(indeks, false);
+        T tempVerdi;
+
+        if (indeks == 0) {
+            tempVerdi = hode.verdi;
+            if (antall == 1) {
+                hode = null;
+                hale = null;
+            } else {
+                hode = hode.neste;
+                hode.forrige = null;
+            }
+
+        }
+
+        else if(indeks == antall-1){
+            tempVerdi = hale.verdi;
+            hale.forrige.neste = null;
+            hale = hale.forrige;
+            if(antall == 1) hode = null;
+        }
+
+        else{
+            Node<T> nodePaaPos = finnNode(indeks);
+            Node<T> curNode = nodePaaPos.forrige;
+            Node<T> r = nodePaaPos.neste;
+            tempVerdi= nodePaaPos.verdi;
+
+            nodePaaPos.verdi = null;
+            nodePaaPos.forrige = null;
+            nodePaaPos.neste = null;
+
+            curNode.neste = r;
+            r.forrige = curNode;
+        }
+        antall--;
+        endringer++;
+        return tempVerdi;
     }
 
     @Override
