@@ -145,6 +145,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Objects.requireNonNull(verdi, "Ikke tillatt med null-verdier!");
         indeksKontroll(indeks, true);
+
+
         if(antall == 0){
 
             hode =  new Node<>(verdi,null,null);
@@ -155,8 +157,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         else if(indeks == 0){
 
 
-            hode  = new Node<>(verdi,null,hode);
-            hode.forrige = hode ;
+            hode.forrige = new Node<>(verdi,null,hode);
+            hode = hode.forrige ;
         }
         else if(indeks == antall){
 
@@ -165,10 +167,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         else{
 
-            Node<T> curNode = finnNode(indeks);
-            curNode.forrige =  new Node<>(verdi,curNode.forrige,curNode);
-            curNode.forrige.neste = curNode.forrige;
 
+            Node<T> curNode = finnNode(indeks);
+            curNode.forrige.neste = new Node<>(verdi,curNode.forrige,curNode);
+            curNode.forrige = curNode.forrige.neste ;
 
         }
         endringer++;
@@ -240,18 +242,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private static void fratilKontroll(int antall, int fra, int til)
     {
         if (fra > til) {
-            throw new IllegalArgumentException
-                    ("den er " + fra + " til -->" + til + "er ulovlig domain");
-
+            throw new IllegalArgumentException("den er " + fra + " til -->" + til + "er ulovlig domain");
         }
         if (fra < 0) {
-            throw new IndexOutOfBoundsException
-                    ("fra den" + fra + ") er negativ omrade!");
+            throw new IndexOutOfBoundsException("fra den" + fra + ") er negativ pos!");
         }
-
         if (til > antall)    {
-            throw new IndexOutOfBoundsException
-                    ("til -->" + til + ") >>>> antall(" + antall + ")");
+            throw new IndexOutOfBoundsException("til -->" + til + ") >>>> antall(" + antall + ")");
         }
 
     }
@@ -262,6 +259,33 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public boolean fjern(T verdi) {
         throw new UnsupportedOperationException();
+      /**  if(verdi == null) {
+
+            return false;
+        }
+
+        Node<T> curNode = hode;
+        Node<T>   refNode = null;
+        while(curNode != null){
+            if(verdi.equals(curNode.verdi)) {
+                if(curNode == hode){
+                    hode = hode.neste;
+                }
+                else{
+                    refNode.neste = curNode.neste;
+                    if(curNode != hale) curNode.neste.forrige = refNode;
+                }
+                if(curNode == hale) {
+                    hale = refNode;
+                }
+
+                antall--;
+                endringer++;
+                return true;
+            }
+            refNode = curNode; curNode = curNode.neste;
+        }
+        return false;*/
     }
 
     @Override
