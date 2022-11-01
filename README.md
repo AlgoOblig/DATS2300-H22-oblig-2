@@ -59,10 +59,28 @@ null slik at metodene vil returnere -1 som første betingelse. så hvis det er e
 enn null, så begynner jeg å sløyfe noden så lenge verdien vi ser på er forskjellig fra verdien 
 på indeksen vi ser etter. hvis noden nåværende verdi er lik verdien av noden ved indeks, returneres sløyfebruddet og indeksverdien
 
+########################### Oppgave 5
+#oppgave 5
+Opgave 5 - leggInn(int indeks, T verdi).   :
+Jeg begynte å implementere ved å sjekke inn ugyldige og ikke tillatte verdier
+ved hjelp av objektklassen Objects.requireNonNull, og jeg har også sjekket for det tillatte indeksintervallet ved å bruke indekscontroller-metoden
+
+så sjekket jeg været at listen er tom i begynnelsen og for å oppdatere verdien av hode og hale hvis vi fikk noe i utgangspunktet
+etter at jeg sjekker riktig posisjon hvor kunne noden lagt til først mellom eller sist, avhengig av denne nye plasseringen, oppdaterer jeg pekeren enten til hodet eller halen
+
+i tilfelle posisjonen er mellom denne noden på en eller annen indeks
+nå vil vi bruke hent(indeks)-metoden for å finne noden og ordne pekeren
+
+
+########################### Oppgave 6
+#oppgave 6
 
 
 
 
+
+########################### Oppgave 8
+#oppgave 8
 
 
 
