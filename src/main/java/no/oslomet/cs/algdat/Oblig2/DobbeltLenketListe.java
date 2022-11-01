@@ -88,23 +88,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     }
 
-    public Liste<T> subliste(int fra, int til) {
-       // throw new UnsupportedOperationException();
 
-        fratilKontroll(antall, fra, til);
-
-        T[] arr = (T[]) new  Object[til-fra];
-        int elementPos = 0;
-        for(int i = fra; i < til; i++){
-            arr[elementPos] = hent(i);
-            elementPos++;
-        }
-
-        DobbeltLenketListe<T> elmentListe = new DobbeltLenketListe<>(arr);
-        return elmentListe;
-
-
-    }
 
     @Override
     public int antall() {
@@ -187,7 +171,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         antall++;
     }
 
+///////////////////////////////////////oppgave 3 ///////////////////////
 
+    /**
+     * oppgave 3 a
+     * @param indeks
+     * */
     private Node<T> finnNode(int indeks){
 
         Node<T> curNode = hode;
@@ -206,12 +195,32 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         //return  null;
     }
 
-    @Override
-    public boolean inneholder(T verdi) {
-       //throw new UnsupportedOperationException();
+        /**
+        *
+        * oppgave 3b
+        * @param fra
+         * @param til
+        * */
+    public Liste<T> subliste(int fra, int til) {
 
-        return indeksTil(verdi) != -1;
+
+        fratilKontroll(antall, fra, til);
+
+        T[] arr = (T[]) new  Object[til-fra];
+        int elementPos = 0;
+        for(int i = fra; i < til; i++){
+            arr[elementPos] = hent(i);
+            elementPos++;
+        }
+
+        DobbeltLenketListe<T> elmentListe = new DobbeltLenketListe<>(arr);
+        return elmentListe;
+
+
     }
+    ////////////////////////////////////////  ///////////////////////////////////////
+
+
 
     @Override
     public T hent(int indeks) {
@@ -221,6 +230,24 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         return finnNode(indeks).verdi;
     }
 
+    ////////////////////////////oppgave4/////////////////////////////
+
+
+    /**
+     *
+     * @param verdi
+     * */
+    @Override
+    public boolean inneholder(T verdi) {
+
+        return indeksTil(verdi) != -1;
+    }
+
+
+/**
+ * oppgave 4 del1
+ * @param verdi
+ * */
     @Override
     public int indeksTil(T verdi) {
        // throw new UnsupportedOperationException();
@@ -233,7 +260,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         return -1;
     }
-
+/////////////////////////////////////////////////////////////////////////
     @Override
     public T oppdater(int indeks, T nyverdi) {
        // throw new UnsupportedOperationException();

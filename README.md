@@ -50,7 +50,14 @@ Oppgave 3 b) subliste(int fra, int til):- så jeg begynte å implementere denne 
 etter det gikk jeg gjennom dette intervallet og plukket verdi ved posisjon
 indeks 'i' som skal tilordnes tabellverdi og økningsposisjon,
 til slutt returnerte jeg denne listetabellen
+###################################### Oppgave 4
 
+#Oppgave4
+Oppgave4 - indeksTil(T verdi) : -
+Jeg begynner å implementere denne metoden for verdien som er null. først lager jeg verdien
+null slik at metodene vil returnere -1 som første betingelse. så hvis det er en annen verdi 
+enn null, så begynner jeg å sløyfe noden så lenge verdien vi ser på er forskjellig fra verdien 
+på indeksen vi ser etter. hvis noden nåværende verdi er lik verdien av noden ved indeks, returneres sløyfebruddet og indeksverdien
 
 
 
