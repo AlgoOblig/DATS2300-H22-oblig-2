@@ -189,7 +189,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
 
     private Node<T> finnNode(int indeks){
-        //throw new UnsupportedOperationException();
+
         Node<T> curNode = hode;
         if(indeks < antall/2){
             for(int i = 0; i < indeks; i++){
