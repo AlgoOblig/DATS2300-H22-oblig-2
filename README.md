@@ -14,13 +14,13 @@ Oppgaven er levert individuelt
 
 # Oppgavebeskrivelse
 #oppgave 1 
-antall() metodene sjekker listen og returnerer antall noder i listen. Jeg starter 
+antall() uten argument metodene sjekker listen og returnerer antall noder i listen. Jeg starter 
 med å kondisjonere og hvis antallet er null, returnerer programmet null ellers returnerer antall noder i listen
-
-
+tom() denne metoden Tom() uten argument vil sjekke om antall = 0 og er sanne. i programmet bruker klassekonstruktøren en for-løkke og tilbakestiller alle variablene ved å sjekke
+hvis matrisetabellen er tom og finn all verdi ved indeksposisjonen som ikke er null og lagt til listen som ny node
 
 ###################################################################
-
+#oppgave 2
 Oppgave er oppnå mye bedre i denne økten og mye forstå innholdet i emnet. Jeg har brukt kursmateriellet og det til å forstå og svare på alle deler av oppgaven.
 
 Utfordringen er siden testprogrammet leveres som forhåndskodet, og det fungerer sikkert på en bestemt programmert måte, en liten feil i koden gjør at testen feiler.
