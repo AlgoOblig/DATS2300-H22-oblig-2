@@ -13,6 +13,13 @@ Denne oppgaven er en innlevering i Algoritmer og Datastrukturer.
 Oppgaven er levert individuelt
 
 # Oppgavebeskrivelse
+#oppgave 1 
+antall() metodene sjekker listen og returnerer antall noder i listen. Jeg starter 
+med å kondisjonere og hvis antallet er null, returnerer programmet null ellers returnerer antall noder i listen
+
+
+
+###################################################################
 
 Oppgave er oppnå mye bedre i denne økten og mye forstå innholdet i emnet. Jeg har brukt kursmateriellet og det til å forstå og svare på alle deler av oppgaven.
 

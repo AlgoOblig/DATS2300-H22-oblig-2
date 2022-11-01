@@ -15,13 +15,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
 
     /**
-     * Node class
+     * dette er den indre klassenoden konstruert fra verdi og to node
      *
      * @param <T>
      */
     private static final class Node<T> {
         private T verdi;                   // nodens verdi
         private Node<T> forrige, neste;    // pekere
+
+        /**
+         *
+         * klass konstruktor
+         * @param verdi
+         * @param  forrige
+         * @param neste
+         * */
 
         private Node(T verdi, Node<T> forrige, Node<T> neste) {
             this.verdi = verdi;
@@ -103,7 +111,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(antall==0){
             return 0 ;
         }
-        return antall;// throw new UnsupportedOperationException();
+        return antall;
     }
 
     @Override
