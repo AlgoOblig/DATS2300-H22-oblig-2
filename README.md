@@ -32,7 +32,10 @@ konkatinering av åpnings- og lukketegnet som firkantede parenteser som tomt set
 omvendtString(): - er også den samme og implementer alle trinn og teknikker som toString jeg nevnte, bortsett fra
 at det er omvendt. jeg mener begynn å implementere metoder fra slutten av halen til begynnende nodehode
 
-b) leggInn(T verdi) : -
+b) leggInn(T verdi) : - Jeg begynte å implementere disse metodene ved først å se etter nullverdien ved hjelp av klasseobjekt requireNonNull-metode . Jeg brukte if-else-betingelsen for å sjekke om listen er tom
+når betingelsen er sann meningslisten er tom har vi ingenting slik at hodenoden og talnoden blir den samme og konstruerte ny nodeobjekt hode fra inngangsverdien og
+null null noder som argument.
+hvis betingelsen ikke er sann, vil noden bli flyttet tilbake til ordet og halen vil bli pekt til den nye noden. verdien tilgjengelig betyr at metoden endelig returnerer sann
 
 
 
