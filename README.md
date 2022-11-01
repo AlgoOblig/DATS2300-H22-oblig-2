@@ -29,7 +29,7 @@ Stringbuilder-klassen for å legge til og sette hver node i listen til streng.  
 med å sjekke om tabellen ikke er tom og utfør det jeg nevnte ovenfor, ellers vil det returnere en enkel streng 
 konkatinering av åpnings- og lukketegnet som firkantede parenteser som tomt sett
 
-omvendtString() : - er også den samme og implementer alle trinn og teknikker som toString jeg nevnte, bortsett fra
+omvendtString(): - er også den samme og implementer alle trinn og teknikker som toString jeg nevnte, bortsett fra
 at det er omvendt. jeg mener begynn å implementere metoder fra slutten av halen til begynnende nodehode
 
 b) leggInn(T verdi) : -
