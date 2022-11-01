@@ -46,6 +46,11 @@ Jeg. e. det først sjekke inn hvis blokk av tilstanden vær indeksposisjonsverdi
 hvis mindre enn halvparten betyr start looping fra hodet ellers vil den begynne å loope fra hodet og finne i motsatt retning. så vil den fortsette å sette node p til neste nodeverdi
 enten klokt i motsetning til at node p vil bli satt til sin privious verdi og til slutt returnert verdien på den spesifiserte posisjonen som argument til metode
 
+Oppgave 3 b) subliste(int fra, int til):- så jeg begynte å implementere denne delen ved å sjekke gyldigheten av intervallgrensen fra til til siden denne metoden vil returnere forekomsten av doubllinklisten som kun er gyldig i det gitte intervallet beng kontrollert som fra til til.
+etter det gikk jeg gjennom dette intervallet og plukket verdi ved posisjon
+indeks 'i' som skal tilordnes tabellverdi og økningsposisjon,
+til slutt returnerte jeg denne listetabellen
+
 
 
 
