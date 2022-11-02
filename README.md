@@ -74,25 +74,34 @@ nå vil vi bruke hent(indeks)-metoden for å finne noden og ordne pekeren
 
 ########################### Oppgave 6
 #oppgave 6
-
-
-
+fjern(int indeks)denne metoden implementeres ved å starte fra å sjekke om indeksen er gyldig ved første trinn.
+Jeg brukte kontrollmetoder jeg nevnte tidligere. så ved hjelp av å lage en midlertidig variabel sjekket
+jeg posisjonen til indeksene for å oppdatere pekeren, oppdaterte jeg verdien av hode- eller halenodene
+og pekerne. dermed hvis indeksen er i første posisjon oppdatert hodet og og dens peker til privious og
+tabellen vil være tom som halen satt til null og det samme for hvis indeksen er på slutten vil halen bli
+oppdatert og slik at pekeren hale. forrige.neste
+hvis posisjonen er i midten brukte jeg en hjelpenode som vil peke på den private noden som vil bli slettet.
+fjern(verdi) sjekk først om verdien ikke er tom og den fungerer på samme måte som jeg nevnte for indekspoisteringen.
+den oppdaterte også antall og endringer
 
 
 ########################### Oppgave 8
+
+
 #oppgave 8
 
+oppgave 8 a) .:-T next()-metoden starter med å sammenligne iteratorendringer med endringer, og hvis ikke det er likt,
+gir det unntak. det sjekker også om det er noen andre neste med verdi, og hvis det ikke finner noen neste,
+vil det gi unntak. den setter til slutt fjernOK = true og lag den nye noden for å tilordne verdien til
+den nåværende noden og returnere den nodeverdien
+
+oppgave 8 b) :- Iterator<T> iterator(). dette er metoden for å returnere bare instanseobjektverdien til DobbeltLenketListeIterator()
+
+oppgave 8 c) DobbeltLenketListeIterator(int indeks). dette implementeres ved å finne verdien til noden ved posisjonsindeksen og settes til denne noden.
+og tilordne den boolske fjernOk til false og også tilordne verdien av endringer til iteratorendringer
 
 
+oppgave 8 d)  Iterator<T> iterator(int indeks).  denne metoden sjekk først om indeksen har gyldig posisjon ved å bruke indekskontrollmetoden, så vil den returnere forekomsten av DobbeltLenketListeIterator
+på den gitte posisjonen som skal være gyldig posisjon
 
-
-
-
-
-Oppgave er oppnå mye bedre i denne økten og mye forstå innholdet i emnet. Jeg har brukt kursmateriellet og det til å forstå og svare på alle deler av oppgaven.
-
-Utfordringen er siden testprogrammet leveres som forhåndskodet, og det fungerer sikkert på en bestemt programmert måte, en liten feil i koden gjør at testen feiler.
-så det tar mye tid fra meg å gå gjennom feil og fikse dem.
-
-Jeg har ikke nok tid til å skrive hele oppgavebeskrivelsen og kommentere. Kodene mine er imidlertid så enkle og tydelig innrykket for å bli forstått
 
